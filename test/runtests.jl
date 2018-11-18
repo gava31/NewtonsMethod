@@ -33,6 +33,9 @@ f(x)=-10x^3-5x^2+20
 @test newtonroot(f,x₀=0.2)[1]≈1.11338619006481 atol=0.000001
 
 
+#Test Big Float
+
+
 #Test non-convergence (return nothing)
 f(x)=2+x^2
 @test newtonroot(f,x₀=0.2)==nothing

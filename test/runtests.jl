@@ -41,6 +41,11 @@ a=BigFloat(0.23240824122077)
   @test newtonroot(f,x₀=0.2)[1]≈a atol=0.000001
  end;
 
+#(I also set all parameters to be BigFloat)
+f(x)=3x^2-5x+1
+@test newtonroot(f,x₀= BigFloat(0.2),tolerance = BigFloat(1E-7), maxiter = BigFloat(1000))[1]≈0.23240824122077 atol=0.000001
+
+
 #Test non-convergence (return nothing)
 f(x)=2+x^2
 @test newtonroot(f,x₀=0.2)==nothing
@@ -54,10 +59,6 @@ b=newtonroot(f,x₀=0.2,maxiter=5)
   @test a≈4.851651954097909e8 atol=0.000001 
   @test b==nothing
  end;
-
-#(I also set all parameters to be BigFloat)
-f(x)=3x^2-5x+1
-newtonroot(f,x₀= BigFloat(0.2),tolerance = BigFloat(1E-7), maxiter = BigFloat(1000))
 
 
 #Test tolerance (As tolerance parameter increases, the code is less accurate)

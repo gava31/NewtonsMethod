@@ -33,8 +33,13 @@ f(x)=-10x^3-5x^2+20
 @test newtonroot(f,x₀=0.2)[1]≈1.11338619006481 atol=0.000001
 
 
-#Test Big Float
-
+#Test Big Float (Not really sure what to do here. What I did is compare the root with a BigFloat)
+f(x)=3x^2-5x+1
+a=BigFloat(0.23240824122077)
+@testset "BigFloat" begin
+  @test newtonroot(f,x₀=0.2)[1]≈0.23240824122077 atol=0.000001
+  @test newtonroot(f,x₀=0.2)[1]≈a atol=0.000001
+ end;
 
 #Test non-convergence (return nothing)
 f(x)=2+x^2

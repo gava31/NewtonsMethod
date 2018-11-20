@@ -59,8 +59,3 @@ a=newtonroot(f,x₀=1)[1]
 b=newtonroot(f,x₀=1, tolerance=0.0005)[1]
 c=newtonroot(f,x₀=1, tolerance=0.05)[1]
 @test f(a)<f(b)<f(c)
-
-
-# New test
-f(x)=x-1.0
-@test newtonroot(f,x₀=0.2)[1]≈2.0

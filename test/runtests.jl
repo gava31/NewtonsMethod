@@ -21,7 +21,7 @@ f′(x)=-20x^2-10x
 
 #Test method 2
 f(x)=x^2-4.0
-@test newtonroot(f,x₀=0.2)[1]≈2.0 atol=0.000001
+@test newtonroot(f,x₀=0.2)[1]≈2.0
 
 f(x)=log(x)-20
 @test newtonroot(f,x₀=0.2)[1]≈4.851651954097909e8
@@ -59,3 +59,8 @@ a=newtonroot(f,x₀=1)[1]
 b=newtonroot(f,x₀=1, tolerance=0.0005)[1]
 c=newtonroot(f,x₀=1, tolerance=0.05)[1]
 @test f(a)<f(b)<f(c)
+
+
+# New test
+f(x)=x-1.0
+@test newtonroot(f,x₀=0.2)[1]≈2.0
